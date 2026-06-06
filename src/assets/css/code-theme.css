@@ -1,0 +1,91 @@
+/*
+  Fenders code theme — based on Atom One Dark
+  Background: logo dark navy #17174a
+  Tokens drawn from the logo colour palette
+*/
+
+pre code.hljs {
+  display: block;
+  padding: 1.5rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+code.hljs {
+  padding: 0 1ch;
+}
+
+.hljs {
+  color: #d4d4f0;           /* soft lavender — base text */
+  background: #17174a;      /* logo dark navy */
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #7070a0;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-doctag,
+.hljs-formula {
+  color: #c97ce8;           /* logo purple */
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #fd5a7c;           /* logo pink-coral */
+}
+
+.hljs-literal {
+  color: #26c7ff;           /* logo cyan */
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string {
+  color: #00d08a;           /* logo teal-green */
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #fd7c53;           /* logo orange */
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #26c7ff;           /* logo cyan */
+}
+
+.hljs-built_in,
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  color: #fabd00;           /* logo yellow */
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}

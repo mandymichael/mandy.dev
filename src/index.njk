@@ -1,0 +1,98 @@
+---
+layout: layouts/base.njk
+title: Fenders
+---
+<section class="home-header">
+  <h1 class="home-heading">Fenders</h1>
+  <p class="home-subtitle">Frontend thoughts, type experiments, and web things</p>
+  <h2 class="home-intro">A collection of notes, experiments, and archived posts about frontend development, typography, and the web.</h2>
+  <p class="home-creator">Made by <a href="https://mandy.dev" target="_blank">Mandy Michael</a> supported by <a href="https://www.instagram.com/adognamedjello" target="_blank">Jello</a>.</p>
+  <p class="home-volume"><span class="home-volume-text">Vol</span><span class="home-volume-num">1.0</span></p>
+</section>
+
+{% set featuredPosts = collections.featured %}
+{% if featuredPosts.length > 0 %}
+{% set fp = featuredPosts[0] %}
+<section class="featured-section">
+  <h2 class="section-heading">Featured</h2>
+  <div class="featured-post">
+    {% if fp.data.card and fp.data.card.cardImage %}
+    <div class="card-image">
+      <img src="{{ fp.data.card.cardImage }}" alt="{{ fp.data.card.cardAlt or fp.data.title }}" class="image-feature" />
+    </div>
+    {% endif %}
+    <div class="featured-post-content">
+      <p class="card-meta">
+        {% if fp.data.date %}<time datetime="{{ fp.date | dateIso }}">{{ fp.date | readableDate }}</time>{% endif %}
+      </p>
+      <h3 class="featured-post-heading">
+        <a href="{{ fp.url }}" class="card-link">{{ fp.data.title }}</a>
+      </h3>
+      {% if fp.data.card and fp.data.card.cardFeaturedSummary %}
+      <p class="featured-post-summary">{{ fp.data.card.cardFeaturedSummary }}</p>
+      {% elif fp.data.summary %}
+      <p class="featured-post-summary">{{ fp.data.summary }}</p>
+      {% endif %}
+      <a href="{{ fp.url }}" class="read-more">Read more &rarr;</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% set articlePosts = collections.articles | limit(4) %}
+{% if articlePosts.length > 0 %}
+<section class="section section-border">
+  <header class="section-header">
+    <h2 class="section-heading">Articles</h2>
+    <a href="/articles/">View all <span>&rarr;</span></a>
+  </header>
+  <ul class="article-list article-list-small">
+    {% for post in articlePosts %}
+    <li class="article-list-item">
+      {% if post.data.card and post.data.card.cardImage %}
+      <a href="{{ post.url }}">
+        <img class="card-img" src="{{ post.data.card.cardImage }}" alt="{{ post.data.card.cardAlt or post.data.title }}" width="440" height="280" />
+      </a>
+      {% else %}
+      <a href="{{ post.url }}">
+        <img class="card-img" src="/assets/images/placeholder-card.svg" alt="" width="440" height="280" />
+      </a>
+      {% endif %}
+      <div class="card-content">
+        <p class="card-meta">{{ post.date | readableDate }}</p>
+        <h3 class="card-heading">
+          <a href="{{ post.url }}" class="card-link">{{ post.data.title }}</a>
+        </h3>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% if externalFeeds.length > 0 %}
+<section class="section section-border">
+  <header class="section-header">
+    <h2 class="section-heading">My Other Sites</h2>
+    <a href="/my-other-sites/">View all <span>&rarr;</span></a>
+  </header>
+  <ul class="article-list article-list-small">
+    {% for item in externalFeeds | limit(4) %}
+    <li class="article-list-item">
+      <a href="{{ item.url }}" target="_blank" rel="noopener">
+        <img class="card-img" src="/assets/images/placeholder-card.svg" alt="" width="440" height="280" />
+      </a>
+      <div class="card-content">
+        <p class="card-meta">
+          <a href="{{ item.sourceUrl }}" class="source-link">{{ item.source }}</a>
+          {% if item.date %} &mdash; <time>{{ item.date | dateFromString }}</time>{% endif %}
+        </p>
+        <h3 class="card-heading">
+          <a href="{{ item.url }}" class="card-link" target="_blank" rel="noopener">{{ item.title }}</a>
+        </h3>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
