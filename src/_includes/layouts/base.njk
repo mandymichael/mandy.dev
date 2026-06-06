@@ -1,32 +1,71 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.url }}/feed.xml" />
-  <link rel="icon" href="{{ site.faviconPath }}" type="image/png" />
-  {% include "partials/global/meta-info.njk" %}
-  <script>document.documentElement.classList.remove('no-js');</script>
-  <style>{% include "assets/css/global.css" %}</style>
-  {% block head %}
-  {% endblock %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% if title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
+  <meta name="description" content="{{ description or site.description }}" />
+  <meta property="og:title" content="{{ title or site.name }}" />
+  <meta property="og:description" content="{{ description or site.description }}" />
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  <link rel="icon" href="/assets/images/favicon.ico" />
+  <link rel="stylesheet" href="/assets/css/global.css" />
+  <link rel="stylesheet" href="/assets/css/code-theme.css" />
+  <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="/feed.xml" />
 </head>
 <body>
-  {% include "partials/global/site-head.njk" %}
-  {% block content %}
-  {% endblock content %}
-  {% include "partials/global/site-foot.njk" %}
-  {% block foot %}
-  {% endblock %}
-  <script type="module" src="/js/components/theme-toggle.js" async defer></script>
+  <div class="page-container">
+    {% include "components/header.njk" %}
+    <main>
+      {{ content | safe }}
+    </main>
+    {% include "components/footer.njk" %}
+  </div>
   <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js');
-      });
+    const listOfSites = `https://raw.githubusercontent.com/mandymichael/mandyswebring/main/mandyswebring.json`;
+    const template = document.createElement("template");
+    template.innerHTML = `
+      <style>
+        .webring { padding: 1rem; text-align: center; background: linear-gradient(149deg, rgba(88,57,109,1) 0%, rgba(196,48,132,1) 100%); font-family: Futura, helvetica, verdana, arial, sans-serif; }
+        .copy { background: rgba(0,0,0,0.8); padding: 2rem; color: #fff; }
+        h1 { text-transform: uppercase; font-size: 1.25rem; font-weight: 400; letter-spacing: 0.2ch; margin: 0; }
+        p { font-weight: 400; line-height: 1.4; letter-spacing: 0.1ch; }
+        p a { color: #e43575; }
+        p a:hover { color: #5dacbf; }
+        ul { list-style: none; display: flex; justify-content: center; gap: 1rem; margin: 0; padding: 0; }
+        nav a { background: #e43575; color: #fff; padding: 0.5rem; display: inline-block; border-radius: 3px; text-decoration: none; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.2ch; transition: background 150ms ease; }
+        nav a:hover { background: #5dacbf; }
+      </style>
+      <aside class="webring"><div id="content" class="copy"></div></aside>`;
+
+    class WebRing extends HTMLElement {
+      connectedCallback() {
+        this.attachShadow({ mode: "open" });
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        const currentSite = this.getAttribute("site");
+        fetch(listOfSites)
+          .then(r => r.json())
+          .then(sites => {
+            const idx = sites.findIndex(s => s.url === currentSite);
+            const prev = idx - 1 < 0 ? sites.length - 1 : idx - 1;
+            const next = idx + 1 > sites.length - 1 ? 0 : idx + 1;
+            let rand = this.getRandomInt(0, sites.length - 1);
+            if (rand === idx) rand = prev;
+            this.shadowRoot.querySelector("#content").insertAdjacentHTML("afterbegin", `
+              <h1>Mandy's Webring</h1>
+              <p>You are visiting <a href="${sites[idx].url}">${sites[idx].name}</a> by ${sites[idx].owner}</p>
+              <nav><ul>
+                <li><a href="${sites[prev].url}">Prev</a></li>
+                <li><a href="${sites[next].url}">Next</a></li>
+                <li><a href="${sites[rand].url}">Random</a></li>
+              </ul></nav>`);
+          });
+      }
+      getRandomInt(min, max) {
+        return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + Math.ceil(min);
+      }
     }
+    window.customElements.get("mandys-webring") || window.customElements.define("mandys-webring", WebRing);
   </script>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
 </body>
 </html>
