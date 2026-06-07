@@ -14,7 +14,7 @@ permalink: /my-other-sites/
     {% for item in externalFeeds %}
     <li class="article-list-item external-item">
       <a href="{{ item.url }}" target="_blank" rel="noopener">
-        <img class="card-img" src="/assets/images/placeholder-card.svg" alt="" width="440" height="280" />
+        <img class="card-img" src="{{ item.image if item.image else '/assets/images/placeholder-card.svg' }}" alt="{{ item.title }}" width="440" height="280" />
       </a>
       <div class="card-content">
         <p class="card-meta">

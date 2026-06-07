@@ -1,7 +1,7 @@
 const EleventyFetch = require("@11ty/eleventy-fetch");
 const { XMLParser } = require("fast-xml-parser");
 
-const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: "@_" });
+const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: "@_", allowBooleanAttributes: true });
 
 const feeds = [
   { url: "https://textlab.dev/rss.xml", source: "Text Lab", sourceUrl: "https://textlab.dev" },
@@ -21,15 +21,22 @@ async function fetchFeed({ url, source, sourceUrl }) {
 
     const items = Array.isArray(channel.item) ? channel.item : channel.item ? [channel.item] : [];
 
-    return items.map((item) => ({
-      title: item.title || "",
-      url: item.link || item.guid || "",
-      date: item.pubDate || item["dc:date"] || "",
-      summary: item.description || item["content:encoded"] || "",
-      source,
-      sourceUrl,
-      external: true,
-    }));
+    return items.map((item) => {
+      const enclosureUrl = item.enclosure?.["@_url"] || "";
+      const mediaUrl = item["media:content"]?.["@_url"] || "";
+      const image = enclosureUrl || mediaUrl || "";
+
+      return {
+        title: item.title || "",
+        url: item.link || item.guid || "",
+        date: item.pubDate || item["dc:date"] || "",
+        summary: item.description || item["content:encoded"] || "",
+        image,
+        source,
+        sourceUrl,
+        external: true,
+      };
+    });
   } catch (e) {
     console.warn(`[externalFeeds] Failed to fetch ${url}:`, e.message);
     return [];
