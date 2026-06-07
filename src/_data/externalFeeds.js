@@ -4,9 +4,9 @@ const { XMLParser } = require("fast-xml-parser");
 const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: "@_" });
 
 const feeds = [
-  { url: "https://textlab.dev/feed.xml", source: "Text Lab", sourceUrl: "https://textlab.dev" },
+  { url: "https://textlab.dev/rss.xml", source: "Text Lab", sourceUrl: "https://textlab.dev" },
   { url: "https://variablefonts.dev/feed.xml", source: "Variable Fonts", sourceUrl: "https://variablefonts.dev" },
-  { url: "https://texteffects.dev/feed.xml", source: "Text Effects", sourceUrl: "https://texteffects.dev" },
+  { url: "https://texteffects.dev/rss.xml", source: "Text Effects", sourceUrl: "https://texteffects.dev" },
 ];
 
 async function fetchFeed({ url, source, sourceUrl }) {

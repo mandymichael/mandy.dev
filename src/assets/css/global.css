@@ -1080,9 +1080,35 @@ pre code {
 
 .footer-footnote {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  padding: 2rem 0;
+  height: 15.438rem;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: row;
+  width: 200px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-ink);
+  display: block;
+  transition: fill 150ms ease;
+}
+
+.footer-social a:hover .footer-icon {
+  fill: var(--color-accent-hover);
+}
+
+.footer-jello {
+  width: 102px;
+  height: 120px;
 }
 
 .footer-creator {
