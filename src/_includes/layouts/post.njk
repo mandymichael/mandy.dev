@@ -22,7 +22,7 @@ layout: layouts/base.njk
     {% if summary %}<p class="post-summary">{{ summary }}</p>{% endif %}
 
     <figure class="post-figure">
-      <img src="{{ card.cardImage if (card and card.cardImage) else '/assets/images/placeholder-card.svg' }}" alt="{{ card.cardAlt if (card and card.cardAlt) else title }}" class="post-hero-image" />
+      <img src="{{ card.cardImage if (card and card.cardImage) else '/assets/images/placeholder-hero.svg' }}" alt="{{ card.cardAlt if (card and card.cardAlt) else title }}" class="post-hero-image" />
       {% if featureFont %}
       <figcaption class="post-figcaption">
         {{ featureFont.font }} by {{ featureFont.author }}{% if featureFont.publisher %}, {{ featureFont.publisher }}{% endif %}

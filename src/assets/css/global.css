@@ -688,10 +688,7 @@ main {
 .card-image::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(100% - 6px);
-  height: calc(100% - 6px);
+  inset: 0;
   font-size: 1.5em;
   border-style: solid;
   border-width: 0.125em;
