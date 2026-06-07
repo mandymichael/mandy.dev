@@ -1,23 +1,23 @@
 /* ===================== COLOUR TOKENS ===================== */
 :root {
   /* Brand */
-  --color-accent:        #9e37cb;  /* purple — links, highlights */
-  --color-accent-hover:  #fd5a7c;  /* pink-coral — hover & visited */
-  --color-tint:          #f0eeff;  /* light lavender — bg tints (post header, code blocks) */
+  --color-accent: #9e37cb; /* purple — links, highlights */
+  --color-accent-hover: #fd5a7c; /* pink-coral — hover & visited */
+  --color-tint: #f0eeff; /* light lavender — bg tints (post header, code blocks) */
 
   /* Text */
-  --color-text:          #2e2e52;  /* body copy */
-  --color-text-dark:     #1a1a3e;  /* headings, nav */
+  --color-text: #2e2e52; /* body copy */
+  --color-text-dark: #1a1a3e; /* headings, nav */
 
   /* Structure */
-  --color-ink:           #17174a;  /* borders, rules */
-  --color-ink-mid:       #17174a75; /* mid-opacity border */
-  --color-ink-faint:     #17174a25; /* faint border */
+  --color-ink: #17174a; /* borders, rules */
+  --color-ink-mid: #17174a75; /* mid-opacity border */
+  --color-ink-faint: #17174a25; /* faint border */
 
   /* Surface */
-  --color-bg:            #fafafa;
-  --color-bg-white:      #fff;
-  --color-code-bg:       #e3e6e8;
+  --color-bg: #fafafa;
+  --color-bg-white: #fff;
+  --color-code-bg: #e3e6e8;
 }
 
 /* ===================== EXTERNAL LINK ICON ===================== */
@@ -116,6 +116,11 @@ h2 {
   font-stretch: 32%;
   letter-spacing: -0.02em;
   margin: 0 0 0.619em 0;
+}
+
+h2 + ul,
+h2 + ol {
+  margin-top: 0;
 }
 
 h3 {
@@ -411,6 +416,14 @@ main {
   padding: 0 1rem;
 }
 
+.page-header-list-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  color: var(--color-text-dark);
+}
+
 .page-header::after {
   content: "";
   width: 100%;
@@ -458,6 +471,84 @@ main {
   font-stretch: 25%;
   font-variation-settings: "opsz" 31;
   line-height: 1;
+}
+
+.page-heading-subtitle-list-page {
+  width: 100%;
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-top: 1em;
+  border-top: 1px solid var(--color-ink);
+  font-stretch: 25%;
+  font-variation-settings: "opsz" 31;
+  line-height: 1;
+}
+/* ===================== TAG GROUP ===================== */
+.tag-group {
+  padding: 0.75rem 1rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  justify-content: center;
+  display: flex;
+}
+
+.tag-details summary {
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tag-details summary::after {
+  content: "+";
+  font-size: 1rem;
+}
+
+.tag-details[open] summary::after {
+  content: "−";
+}
+
+.tag-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0.75rem 0 0;
+  margin: 0;
+}
+
+.tag-list-item a {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--color-ink);
+  text-decoration: none;
+  color: var(--color-text-dark);
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.tag-list-item a:hover {
+  background: var(--color-ink);
+  color: var(--color-bg);
 }
 
 /* ===================== SECTIONS ===================== */
@@ -1012,6 +1103,248 @@ pre code {
   flex-direction: column;
   border-bottom: 1px solid var(--color-ink-faint);
   padding-bottom: 1.5rem;
+}
+
+/* ===================== AI TOOLS PAGE ===================== */
+.ai-tools-intro {
+  max-width: 54.688rem;
+  margin: 2rem auto 0;
+  padding: 0 1rem;
+  line-height: 1.6;
+}
+
+@media screen and (min-width: 48rem) {
+  .ai-tools-intro {
+    padding: 0 2rem;
+  }
+}
+
+.ai-tools-section {
+  margin: 3rem 0 8rem;
+  padding: 0 1rem;
+}
+
+@media screen and (min-width: 48rem) {
+  .ai-tools-section {
+    padding: 0 2rem;
+  }
+}
+
+.ai-tools-callout {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem 1.5rem;
+  background: var(--color-tint);
+  border-left: 3px solid var(--color-accent);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.ai-tools-callout p {
+  margin: 0;
+}
+
+.ai-tools-caveat {
+  font-size: 0.8rem;
+  color: var(--color-text);
+  opacity: 0.6;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* ---- Scrollable table wrapper ---- */
+.comparison-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--color-ink-mid);
+}
+
+/* ---- Table base ---- */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  min-width: 900px;
+}
+
+.comparison-table thead tr {
+  border-bottom: 3px solid var(--color-ink);
+  background: var(--color-bg);
+}
+
+.comparison-table th {
+  text-align: left;
+  padding: 0.875rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-stretch: 25%;
+  font-variation-settings: "opsz" 31;
+  color: var(--color-text-dark);
+  white-space: nowrap;
+}
+
+.comparison-table td {
+  padding: 1rem;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-ink-faint);
+  line-height: 1.5;
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table tbody tr:hover td {
+  background: var(--color-tint);
+}
+
+/* Sticky first column */
+.col-tool {
+  position: sticky;
+  left: 0;
+  background: var(--color-bg);
+  z-index: 1;
+  min-width: 180px;
+  border-right: 1px solid var(--color-ink-faint);
+}
+
+.comparison-table thead .col-tool {
+  background: var(--color-bg);
+}
+
+.comparison-table tbody tr:hover .col-tool {
+  background: var(--color-tint);
+}
+
+.col-tool-name {
+  font-size: 0.9375rem;
+}
+
+/* Column widths */
+.col-category {
+  min-width: 130px;
+}
+.col-adherence {
+  min-width: 200px;
+}
+.col-ds-direct {
+  min-width: 200px;
+}
+.col-tokens {
+  min-width: 200px;
+}
+.col-output {
+  min-width: 180px;
+}
+.col-integrations {
+  min-width: 180px;
+}
+.col-stage {
+  min-width: 160px;
+}
+.col-effort {
+  min-width: 200px;
+}
+
+/* ---- Notes in cells ---- */
+.col-note {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  color: var(--color-text);
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+/* ---- Badge list (output, integrations, stage) ---- */
+.badge-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+/* ---- Badges ---- */
+.badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+  white-space: nowrap;
+  font-stretch: 25%;
+  font-variation-settings: "opsz" 31;
+  line-height: 1.4;
+}
+
+.badge--neutral {
+  background: var(--color-code-bg);
+  color: var(--color-text-dark);
+}
+
+.badge--category {
+  background: var(--color-tint);
+  color: var(--color-text-dark);
+  border: 1px solid var(--color-ink-faint);
+}
+
+.badge--stage {
+  background: var(--color-bg-white);
+  color: var(--color-text-dark);
+  border: 1px solid var(--color-ink-mid);
+}
+
+/* Adherence levels */
+.badge--adherence.badge--high {
+  background: #d4f5e2;
+  color: #144a2c;
+}
+
+.badge--adherence.badge--medium {
+  background: #fff3cd;
+  color: #4a3300;
+}
+
+.badge--adherence.badge--low {
+  background: #fde8e8;
+  color: #6b1212;
+}
+
+/* Token support */
+.badge--yes {
+  background: #d4f5e2;
+  color: #144a2c;
+}
+
+.badge--no {
+  background: #fde8e8;
+  color: #6b1212;
+}
+
+.badge--partial {
+  background: #fff3cd;
+  color: #4a3300;
+}
+
+/* Human review effort */
+.badge--effort-low {
+  background: #d4f5e2;
+  color: #144a2c;
+}
+
+.badge--effort-medium {
+  background: #fff3cd;
+  color: #4a3300;
+}
+
+.badge--effort-high {
+  background: #fde8e8;
+  color: #6b1212;
 }
 
 /* ===================== FOOTER ===================== */

@@ -1,0 +1,133 @@
+---
+layout: layouts/base.njk
+title: AI Design & Code Tools, Design System Comparison
+permalink: /ai-tools/
+---
+
+<section class="page-header">
+  <h1 class="page-heading">AI Design & Code Tool Comparison</h1>
+  <p class="page-heading-subtitle">Comparing how AI tools integrate with real design systems and team workflows</p>
+</section>
+
+<section class="ai-tools-intro">
+<p>This is my personal comparison of AI design-to-code and code-to-design tools, focused specifically on design system compatibility. 
+  I’m interested in how well each tool works with an existing design system, whether it uses real design system components directly,
+   what kind of output it produces, and where it fits within existing design and development workflows.</p>
+
+<p>This matters to me because I believe AI tools are most valuable when they are used to strengthen our work and systems not bypass them.
+   Design systems exist to maintain consistency, quality, and scalability across an application, 
+  and teams have invested significant human knowledge and experience into defining their components, patterns, and guidelines. 
+  When AI can integrate with those systems directly, in my opinion its long-term value much higher than a tool that generates 
+  only a visual or code approximation.</p>
+
+<p>AI design tools are often marketed around speed and rapid generation, but I think that framing can underplay where 
+  their deeper value lies. Which is helping teams create better, more consistent, and more maintainable output by working
+   directly with the design systems they already use. Approximation-based tools can still be useful, especially for
+    exploration or early prototyping, but this comparison intentionally gives more weight to tools that can connect to, 
+    preserve, and extend an existing design system.</p>
+    
+  <aside class="ai-tools-callout ai-tools-callout--opinion">
+    <p>This is a personal, exploratory comparison based on my own experience and experimentation. I don't claim to have an exhaustive understanding of every tool or product listed here, and ratings reflect my own perspective rather than a definitive assessment.</p>
+  </aside>
+
+  <h2>Comparison Criteria</h2>
+  <ul>  
+    <li><strong>Design System Adherence:</strong> How closely the tool's output follows the conventions and structure of a design system.</li>
+    <li><strong>Use of Design System Elements:</strong> Whether the tool can utilise actual design system components, patterns and tokens or if it is just an approximations.</li>
+    <li><strong>Output Format:</strong> The type of code or design files the tool generates (e.g., React components, Figma files etc).</li>
+    <li><strong>Integrations:</strong> Compatibility with existing popular design and development tools (e.g., Figma, VS Code etc).</li>
+    <li><strong>Workflow Stage:</strong> Where in the design and development process the tool is most effective (e.g., early design, handoff, development).</li>
+    <li><strong>Human Review Effort:</strong> The level of manual review and/or adjustment needed after using the tool to ensure quality and consistency.</li>
+  </ul>
+
+  <aside class="ai-tools-callout">
+    <p>Something you want me to review? If you’ve used or built an AI design-to-code or code-to-design tool that fits this space, I’d love to hear about it. Reach out to me on <a href="https://www.linkedin.com/in/mandykerr" target="_blank">LinkedIn</a> or <a href="https://front-end.social/@mandymichael" target="_blank">Mastodon</a>.</p>
+  </aside>
+
+</section>
+
+
+<section class="ai-tools-section">
+
+  <div class="comparison-table-wrapper">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th class="col-tool" scope="col">Tool</th>
+          <th scope="col">Category</th>
+          <th scope="col">DS Adherence</th>
+          <th scope="col">Uses DS Elements Directly</th>
+          <th scope="col">Output</th>
+          <th scope="col">Integrations</th>
+          <th scope="col">Workflow Stage</th>
+          <th scope="col">Human Review Effort</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for tool in aiToolsComparison %}
+        <tr>
+          <td class="col-tool col-tool-name">
+            <strong>{{ tool.name }}</strong>
+          </td>
+          <td class="col-category">
+            <ul class="badge-list">
+              {% for cat in tool.category %}
+              <li><span class="badge badge--category">{{ cat }}</span></li>
+              {% endfor %}
+            </ul>
+          </td>
+          <td class="col-adherence">
+            <span class="badge badge--adherence badge--{{ tool.designSystemAdherence | lower }}">{{ tool.designSystemAdherence }}</span>
+            {% if tool.adherenceNotes %}
+            <p class="col-note">{{ tool.adherenceNotes }}</p>
+            {% endif %}
+          </td>
+          <td class="col-ds-direct">
+            {% if tool.usesDSElementsDirectly %}
+            <span class="badge badge--yes" aria-label="Yes">Yes</span>
+            {% else %}
+            <span class="badge badge--no" aria-label="No">No</span>
+            {% endif %}
+            {% if tool.usesDSNotes %}
+            <p class="col-note">{{ tool.usesDSNotes }}</p>
+            {% endif %}
+          </td>
+          <td class="col-output">
+            <ul class="badge-list">
+              {% for item in tool.output %}
+              <li><span class="badge badge--neutral">{{ item }}</span></li>
+              {% endfor %}
+            </ul>
+          </td>
+          <td class="col-integrations">
+            <ul class="badge-list">
+              {% for item in tool.integrations %}
+              <li><span class="badge badge--neutral">{{ item }}</span></li>
+              {% endfor %}
+            </ul>
+          </td>
+          <td class="col-stage">
+            <ul class="badge-list">
+              {% for stage in tool.workflowStage %}
+              <li><span class="badge badge--stage">{{ stage }}</span></li>
+              {% endfor %}
+            </ul>
+          </td>
+          <td class="col-effort">
+            <span class="badge badge--effort badge--effort-{{ tool.humanReviewEffort | lower }}">{{ tool.humanReviewEffort }}</span>
+            {% if tool.reviewNotes %}
+            <p class="col-note">{{ tool.reviewNotes }}</p>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <p class="ai-tools-caveat">
+    This comparison reflects a snapshot in time, these tools evolve quickly and ratings may change as capabilities improve.
+  </p>
+  <p class="ai-tools-caveat">Last updated: <time datetime="2026-06-07">7 June 2026</time></p>
+
+</section>
