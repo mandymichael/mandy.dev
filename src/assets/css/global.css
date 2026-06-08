@@ -1105,6 +1105,54 @@ pre code {
   padding-bottom: 1.5rem;
 }
 
+/* ===================== AI TOOLS PROMO (INDEX) ===================== */
+.ai-tools-promo {
+  padding: 3rem 1rem;
+  margin-top: 5rem;
+  background: linear-gradient(135deg, #e4f8f2 0%, #e0f4ff 100%);
+  border-top: 3px solid var(--color-ink);
+}
+
+.ai-tools-promo-inner {
+  max-width: 54.688rem;
+  margin: 0 auto;
+}
+
+.ai-tools-promo-heading {
+  font-size: clamp(1.5rem, 4vw + 0.5rem, 2.5rem);
+  font-stretch: 62%;
+  font-variation-settings: "opsz" 39;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+  color: var(--color-ink);
+}
+
+.ai-tools-promo-text {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+  max-width: 42rem;
+  color: var(--color-text);
+}
+
+a.ai-tools-promo-link {
+  display: inline-block;
+  background: #2a9e8a;
+  color: var(--color-ink);
+  padding: 0.6rem 1.25rem;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: background 150ms ease;
+}
+
+.ai-tools-promo-link:hover {
+  background: #1d7a6a;
+  color: #fff;
+}
+
 /* ===================== AI TOOLS PAGE ===================== */
 .ai-tools-intro {
   max-width: 54.688rem;
