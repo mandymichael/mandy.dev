@@ -50,6 +50,7 @@ title: Fenders
 </section>
 
 {% set articlePosts = collections.articles | limit(4) %}
+{% set articlePlaceholders = articlePosts | assignPlaceholders %}
 {% if articlePosts.length > 0 %}
 <section class="section section-border">
   <header class="section-header">
@@ -59,13 +60,13 @@ title: Fenders
   <ul class="article-list article-list-small">
     {% for post in articlePosts %}
     <li class="article-list-item">
-      {% if post.data.card and post.data.card.cardImage %}
+      {% if post.data.card and post.data.card.cardImage and post.data.card.cardImage != '/assets/images/placeholder-hero.svg' %}
       <a href="{{ post.url }}">
         <img class="card-img" src="{{ post.data.card.cardImage }}" alt="{{ post.data.card.cardAlt or post.data.title }}" width="440" height="280" />
       </a>
       {% else %}
       <a href="{{ post.url }}">
-        <img class="card-img" src="/assets/images/placeholder-card.svg" alt="" width="440" height="280" />
+        <img class="card-img" src="{{ articlePlaceholders[loop.index0] }}" alt="" width="440" height="280" />
       </a>
       {% endif %}
       <div class="card-content">
@@ -80,6 +81,8 @@ title: Fenders
 </section>
 {% endif %}
 
+{% set externalFeedsLimited = externalFeeds | limit(4) %}
+{% set externalPlaceholders = externalFeedsLimited | assignPlaceholders %}
 {% if externalFeeds.length > 0 %}
 <section class="section section-border">
   <header class="section-header">
@@ -87,10 +90,10 @@ title: Fenders
     <a href="/my-other-sites/">View all <span>&rarr;</span></a>
   </header>
   <ul class="article-list article-list-small">
-    {% for item in externalFeeds | limit(4) %}
+    {% for item in externalFeedsLimited %}
     <li class="article-list-item">
       <a href="{{ item.url }}" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img class="card-img" src="{{ item.image if item.image else '/assets/images/placeholder-card.svg' }}" alt="" width="440" height="280" />
+        <img class="card-img" src="{{ item.image if item.image else externalPlaceholders[loop.index0] }}" alt="" width="440" height="280" />
       </a>
       <div class="card-content">
         <p class="card-meta">

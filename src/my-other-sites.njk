@@ -21,11 +21,12 @@ permalink: /my-other-sites/
 </section>
 
 <section class="section section-border">
+  {% set externalPlaceholders = externalFeeds | assignPlaceholders %}
   <ul class="article-list external-list">
     {% for item in externalFeeds %}
     <li class="article-list-item external-item">
       <a href="{{ item.url }}" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img class="card-img" src="{{ item.image if item.image else '/assets/images/placeholder-card.svg' }}" alt="" width="440" height="280" />
+        <img class="card-img" src="{{ item.image if item.image else externalPlaceholders[loop.index0] }}" alt="" width="440" height="280" />
       </a>
       <div class="card-content">
         <p class="card-meta">

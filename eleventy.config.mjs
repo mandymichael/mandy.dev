@@ -54,6 +54,48 @@ export default function (eleventyConfig) {
     return dateStr;
   });
 
+  const placeholderCards = [
+    "/assets/images/placeholder-card.svg",
+    "/assets/images/placeholder-card-2.svg",
+    "/assets/images/placeholder-card-3.svg",
+    "/assets/images/placeholder-card-4.svg",
+    "/assets/images/placeholder-card-5.svg",
+    "/assets/images/placeholder-card-6.svg",
+    "/assets/images/placeholder-card-7.svg",
+    "/assets/images/placeholder-card-8.svg",
+    "/assets/images/placeholder-card-9.svg",
+    "/assets/images/placeholder-card-10.svg",
+    "/assets/images/placeholder-card-11.svg",
+  ];
+
+  const hashSeed = (seed) => {
+    const str = String(seed || "");
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
+    }
+    return hash;
+  };
+
+  // Assign placeholders to a list of items, ensuring no two adjacent entries share the same image.
+  // Items can be post objects (with .url) or external feed objects (with .url).
+  // Returns an array of image paths in the same order as the input list.
+  eleventyConfig.addFilter("assignPlaceholders", (items) => {
+    const results = [];
+    for (let i = 0; i < items.length; i++) {
+      const seed = items[i].url || String(i);
+      let idx = hashSeed(seed) % placeholderCards.length;
+      if (i > 0) {
+        const prevIdx = placeholderCards.indexOf(results[i - 1]);
+        if (idx === prevIdx) {
+          idx = (idx + 1) % placeholderCards.length;
+        }
+      }
+      results.push(placeholderCards[idx]);
+    }
+    return results;
+  });
+
   eleventyConfig.addFilter("limit", (arr, limit) => arr.slice(0, limit));
   eleventyConfig.addFilter("striptags", (str) => String(str).replace(/<[^>]*>/g, ""));
   eleventyConfig.addFilter("truncate", (str, len) => {

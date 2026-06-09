@@ -11,16 +11,17 @@ permalink: /articles/
 
 <section class="section section-border">
   {% if collections.articles.length > 0 %}
+  {% set articlePlaceholders = collections.articles | assignPlaceholders %}
   <ul class="article-list">
     {% for post in collections.articles %}
     <li class="article-list-item">
-      {% if post.data.card and post.data.card.cardImage %}
+      {% if post.data.card and post.data.card.cardImage and post.data.card.cardImage != '/assets/images/placeholder-hero.svg' %}
       <a href="{{ post.url }}">
         <img class="card-img" src="{{ post.data.card.cardImage }}" alt="{{ post.data.card.cardAlt or post.data.title }}" width="440" height="280" />
       </a>
       {% else %}
       <a href="{{ post.url }}">
-        <img class="card-img" src="/assets/images/placeholder-card.svg" alt="" width="440" height="280" />
+        <img class="card-img" src="{{ articlePlaceholders[loop.index0] }}" alt="" width="440" height="280" />
       </a>
       {% endif %}
       <div class="card-content">
