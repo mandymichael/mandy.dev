@@ -14,11 +14,11 @@ card:
   }
 ---
 
-I've been thinking a lot about where design systems fit now that AI is writing so much of our UI. Not whether they still matter, but what their job actually becomes when a meaningful share of the work is generated rather than written by hand.
+I've been thinking a lot about where design systems fit now that AI is writing so much of our UI and what their job actually is now that a meaningful share of the work is being generated rather than written by hand.
 
-For a long time a design systems, to put it simply, have been sold as a consistency tool and a way to move faster. It has been useful but it was also the kind of thing that companies quietly deprioritised when budgets got tight. A button slightly off here, some spacing that did not quite match there didn't matter in the grand scheme of things (a stance I disagree with but I digress).
+For a long time design systems (to put it simply) have been sold as a consistency tool and a way to move faster. It has been useful but it was also the kind of thing that companies deprioritised when budgets got tight. The idea being that a button slightly off here or some spacing that did not quite match there didn't matter in the grand scheme of things (a stance I disagree with but I digress).
 
-However, treating design systems as some kind of optional consistency work no longer makes sense, and this is what I've been muddling through in my brain.
+However I believe treating design systems as some kind of optional consistency work no longer makes sense, and this is what I've been muddling through in my brain.
 
 ## What happens now that work is generated
 
