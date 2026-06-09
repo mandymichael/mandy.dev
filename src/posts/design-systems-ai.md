@@ -24,7 +24,7 @@ However I believe treating design systems as some kind of optional consistency w
 
 When most of our UI was written by people, the design system lived partly in the codebase and partly in everyone's heads. Engineers and designers absorbed the conventions over a long period of time (hopefully). The system was a shared reference, but it was not the only thing holding the line because people remembered how things were supposed to look.
 
-AI does not remember any of your guidelines, it is not ignorant of design system concepts, it just does not know yours unless you put it in context. Every generation starts fresh, with no sense of your conventions and no loyalty to them. I recently [read an article by Christoph Nakazawa](https://cpojer.net/posts/modern-engineering-values) that made the point: working with coding agents is structurally the same as running a large organisation, because you are constantly dropping new people with no context into the codebase. His conclusion was that the more constraints you put on the code (things like lint rules, automated tests etc) the faster people can actually move, because the guardrails catch mistakes before they spread.
+AI does not remember any of your guidelines, it's not ignorant of design system concepts, it just does not know yours unless you put it in context. Every generation starts fresh, with no sense of your conventions and no loyalty to them. I recently [read an article by Christoph Nakazawa](https://cpojer.net/posts/modern-engineering-values) that made the point: working with coding agents is structurally the same as running a large organisation, because you are constantly dropping new people with no context into the codebase. His conclusion was that the more constraints you put on the code (things like lint rules, automated tests etc) the faster people can actually move, because the guardrails catch mistakes before they spread.
 
 A design system is meant to be the guardrail for the visual and interaction layer of a product, the cost of a weak design system isn't just inconsistency anymore, it's bad automation at scale. You should be constantly assessing whether it is accurate enough to be trusted, because something is now going to generate against it thousands of times a month.
 
@@ -38,13 +38,13 @@ The tempting way to put it is if AI can get eighty-five percent fidelity, compou
 
 So really it's a lot simpler than that, AI generates against the current state of the codebase, not the state you intended. When a model needs to build a new card, it looks at how cards are built right now, including the slightly-off one a previous generation produced that nobody corrected. So now any deviations are no longer a one off mistake it's now part of what the next generation is going to treat as normal. Arguably this was always the case but now it's just magnified by the speed at which AI works.
 
-But this is what is what I think is actually compounding, its not necessary because errors multiply it's because each uncorrected deviation quietly raises the chance the next model copies it. The system begins to fail toward whatever sloppy local pattern happens to accumulate, and then it accelerates in that direction, because AI is very good at confidently extending any pattern it can see.
+But this is what I think is actually compounding — it's not necessarily because errors multiply, it's because each uncorrected deviation quietly raises the chance the next model copies it. The system begins to fail toward whatever sloppy local pattern happens to accumulate, and then it accelerates in that direction, because AI is very good at confidently extending any pattern it can see.
 
-The risk is not one bad generation it's that the one bad generations become the reference for the good ones.
+The risk is not one bad generation — it's that bad generations become the reference for the good ones.
 
 ## Ownership of the Design Systems
 
-Every correction in that loop depends on someone owning the answer to what the system actually is, from both a design and engineering perspective. This is exactly the kind of role companies cut because the impact is delayed. To me this thinking was already short-sighted but with AI in the loop, I think it moves into recklessness. By cutting it in this new landscape it's not just a quality trade-off you are actively removing the authoritative reference that AI is going to generate against thousands of times a month.
+Every correction in that loop depends on someone owning the answer to what the system actually is, from both a design and engineering perspective. This is exactly the kind of role companies cut because the impact is delayed. To me this thinking was already short-sighted but with AI in the loop, I think it moves into recklessness. By cutting it in this new landscape it's not just a quality trade-off — you are actively removing the authoritative reference that AI is going to generate against thousands of times a month.
 
 A design system is not a static artifact, it is a continuously maintained claim about what a product should look and behave like. Tokens get added, components get deprecated, patterns diverge and someone has to decide which one is canonical, documentation has to be rewritten when the intent changes. None of this maintains itself.
 
@@ -56,9 +56,9 @@ One thing I want to call out here though is what central ownership actually mean
 
 Central ownership means someone is paid to say no, it's their job to protect it when the pressure of building features makes the wrong thing look convenient and easy. It's not a support function running alongside the job. A central team's success metric is the accuracy and usability of the system itself, not feature velocity, not a sprint deadline. This separation is intentional. A feature team will make pragmatic trade-offs under pressure. A central team's job is precisely to not make that trade-off, because the health of the system is what they are measured against. That means ensuring consistent output for people and for AI, tracking how much of the surrounding codebase actually uses the system, and stepping in where things deviate. It means holding the line when components get built so generically they stop being usable, or when people reach for the easy implementation rather than the right one. The system does not stay accurate by accident. Someone has to care more about getting it right than about getting it done.
 
-This does not mean slowing feature teams down. A well run central team works alongside people working on features. Instead the guardrails that the team work on are what let everyone move faster, because the questions about what is correct have already been answered or are being answered by the people focused on it.
+This does not mean slowing feature teams down. A well-run central team works alongside people working on features. Instead the guardrails that the team work on are what let everyone move faster, because the questions about what is correct have already been answered or are being answered by the people focused on it.
 
-To me at least this re-frames the investment question from "can we afford a design systems team" to "can we afford to point AI at a reference that nobody is keep true or accurate?"
+To me at least this re-frames the investment question from "can we afford a design systems team" to "can we afford to point AI at a reference that nobody is keeping true or accurate?"
 
 ## Constraints and loops
 

@@ -3,6 +3,7 @@ import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeHighlight from "rehype-highlight";
+import rehypeExternalLinks from "rehype-external-links";
 import rehypeStringify from "rehype-stringify";
 
 const markdownLib = {
@@ -11,6 +12,7 @@ const markdownLib = {
       .use(remarkParse)
       .use(remarkRehype, { allowDangerousHtml: true })
       .use(rehypeHighlight, { detect: true, ignoreMissing: true })
+      .use(rehypeExternalLinks, { target: "_blank", rel: ["noopener", "noreferrer"] })
       .use(rehypeStringify, { allowDangerousHtml: true })
       .processSync(content)
       .toString();

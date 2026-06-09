@@ -11,6 +11,7 @@
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-fetch": "^4.0.0",
     "fast-xml-parser": "^4.3.0",
+    "rehype-external-links": "^3.0.0",
     "rehype-highlight": "^7.0.2",
     "rehype-stringify": "^10.0.1",
     "remark-parse": "^11.0.0",
