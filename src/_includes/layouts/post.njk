@@ -2,7 +2,7 @@
 layout: layouts/base.njk
 ---
 <article>
-  <header class="post-header">
+  <header class="post-header{% if not (card and card.cardImage and card.cardImage != '/assets/images/placeholder-hero.svg') %} post-header--no-image{% endif %}">
 
     <div class="post-meta-bar">
       <a href="/articles/" class="post-back-link">&larr; All Articles</a>
@@ -21,8 +21,9 @@ layout: layouts/base.njk
     <h1 class="post-title">{{ title }}</h1>
     {% if summary %}<p class="post-summary">{{ summary }}</p>{% endif %}
 
+    {% if card and card.cardImage and card.cardImage != '/assets/images/placeholder-hero.svg' %}
     <figure class="post-figure">
-      <img src="{{ card.cardImage if (card and card.cardImage) else '/assets/images/placeholder-hero.svg' }}" alt="{{ card.cardAlt if (card and card.cardAlt) else title }}" class="post-hero-image" />
+      <img src="{{ card.cardImage }}" alt="{{ card.cardAlt if card.cardAlt else title }}" class="post-hero-image" />
       {% if featureFont %}
       <figcaption class="post-figcaption">
         {{ featureFont.font }} by {{ featureFont.author }}{% if featureFont.publisher %}, {{ featureFont.publisher }}{% endif %}
@@ -31,6 +32,7 @@ layout: layouts/base.njk
       <figcaption class="post-figcaption">{{ card.cardAlt }}</figcaption>
       {% endif %}
     </figure>
+    {% endif %}
 
   </header>
 

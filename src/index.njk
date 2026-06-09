@@ -6,7 +6,7 @@ title: Fenders
   <h1 class="home-heading">Fenders</h1>
   <p class="home-subtitle">Frontend thoughts, type experiments, and web things</p>
   <h2 class="home-intro">A collection of notes, experiments, and archived posts about frontend development, typography, and the web.</h2>
-  <p class="home-creator">Made by <a href="https://mandy.dev" target="_blank">Mandy Michael</a> supported by <a href="https://www.instagram.com/adognamedjello" target="_blank">Jello</a>.</p>
+  <p class="home-creator">Made by <a href="https://mandy.dev" target="_blank">Mandy Michael</a> supported by <a href="https://www.instagram.com/adognamedjello" target="_blank">Jello<span class="sr-only"> (opens in new tab)</span></a>.</p>
   <p class="home-volume"><span class="home-volume-text">Vol</span><span class="home-volume-num">1.0</span></p>
 </section>
 
@@ -89,16 +89,16 @@ title: Fenders
   <ul class="article-list article-list-small">
     {% for item in externalFeeds | limit(4) %}
     <li class="article-list-item">
-      <a href="{{ item.url }}" target="_blank" rel="noopener">
-        <img class="card-img" src="{{ item.image if item.image else '/assets/images/placeholder-card.svg' }}" alt="{{ item.title }}" width="440" height="280" />
+      <a href="{{ item.url }}" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img class="card-img" src="{{ item.image if item.image else '/assets/images/placeholder-card.svg' }}" alt="" width="440" height="280" />
       </a>
       <div class="card-content">
         <p class="card-meta">
           <a href="{{ item.sourceUrl }}" class="source-link">{{ item.source }}</a>
-          {% if item.date %} &mdash; <time>{{ item.date | dateFromString }}</time>{% endif %}
+          {% if item.date %} &mdash; <time datetime="{{ item.date }}">{{ item.date | dateFromString }}</time>{% endif %}
         </p>
         <h3 class="card-heading">
-          <a href="{{ item.url }}" class="card-link" target="_blank" rel="noopener">{{ item.title }}</a>
+          <a href="{{ item.url }}" class="card-link" target="_blank" rel="noopener">{{ item.title }}<span class="sr-only"> (opens in new tab)</span></a>
         </h3>
       </div>
     </li>
