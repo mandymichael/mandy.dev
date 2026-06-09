@@ -1,0 +1,46 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.postsByTag
+  size: 1
+  alias: tag
+permalink: /tags/{{ tag | slug }}/
+eleventyComputed:
+  title: "Articles tagged: {{ tag }}"
+  description: "All articles tagged with {{ tag }}"
+---
+<section class="page-header">
+  <h1 class="page-heading">Tagged: {{ tag }}</h1>
+  <p class="page-heading-subtitle"><a href="/articles/">&larr; All Articles</a></p>
+</section>
+
+<section class="section section-border">
+  {% set taggedPosts = collections.postsByTag[tag] %}
+  {% if taggedPosts and taggedPosts.length > 0 %}
+  {% set articlePlaceholders = taggedPosts | assignPlaceholders %}
+  <ul class="article-list">
+    {% for post in taggedPosts %}
+    <li class="article-list-item">
+      {% if post.data.card and post.data.card.cardImage and post.data.card.cardImage != '/assets/images/placeholder-hero.svg' %}
+      <a href="{{ post.url }}">
+        <img class="card-img" src="{{ post.data.card.cardImage }}" alt="{{ post.data.card.cardAlt or post.data.title }}" width="440" height="280" />
+      </a>
+      {% else %}
+      <a href="{{ post.url }}">
+        <img class="card-img" src="{{ articlePlaceholders[loop.index0] }}" alt="" width="440" height="280" />
+      </a>
+      {% endif %}
+      <div class="card-content">
+        <p class="card-meta">{{ post.date | readableDate }}</p>
+        <h3 class="card-heading">
+          <a href="{{ post.url }}" class="card-link">{{ post.data.title }}</a>
+        </h3>
+        {% if post.data.summary %}<p class="card-summary">{{ post.data.summary }}</p>{% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No articles found for this tag.</p>
+  {% endif %}
+</section>

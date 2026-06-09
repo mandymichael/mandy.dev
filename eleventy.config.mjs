@@ -117,6 +117,24 @@ export default function (eleventyConfig) {
       .sort((a, b) => b.date - a.date)
   );
 
+  eleventyConfig.addCollection("postsByTag", (api) => {
+    const posts = api.getFilteredByGlob("src/posts/**/*.md").filter(notDraft);
+    const tagMap = {};
+    for (const post of posts) {
+      const tags = (post.data.tags || []).filter(
+        (t) => t !== "post" && t !== "article" && t !== "featured" && t !== "draft"
+      );
+      for (const tag of tags) {
+        if (!tagMap[tag]) tagMap[tag] = [];
+        tagMap[tag].push(post);
+      }
+    }
+    for (const tag of Object.keys(tagMap)) {
+      tagMap[tag].sort((a, b) => b.date - a.date);
+    }
+    return tagMap;
+  });
+
   eleventyConfig.addCollection("featured", (api) =>
     api
       .getFilteredByGlob("src/posts/**/*.md")
