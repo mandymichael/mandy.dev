@@ -76,8 +76,10 @@ If the pipeline rejects off-system output and the documentation is accurate and 
 
 I've heard people say we should offload the work we don't enjoy to AI, but the problem is that if you are handing off work you don't understand you lose the ability to know whether the output is any good. In his article [Nakazawa puts it pretty plainly](https://cpojer.net/posts/modern-engineering-values): with agents, everyone can generate a lot of bullshit all day long. The thing that separates useful output from noise is whether the person directing the model knows what good looks like. You cannot guide something to the right outcome if you cannot recognise the right outcome. The goal shouldn't be to avoid the parts that feel difficult it should be to know them well enough that you can direct, review, and push back when the model gets it wrong.
 
-Those are decisions, not generations, and they are where design and engineering leadership earns its place. The model executes against the system, the system encodes the team's judgement and a central team keeps that judgement accurate so it can be executed against at scale.
+Those are decisions, not generations, and they are where the design system team of designers and engineers earns its place. The model executes against the system, the system encodes the team's judgement and a central team keeps that judgement accurate so it can be executed against at scale.
 
 I may be biased, but for me this lands on the same conclusion I keep arriving at from different directions. AI does not remove the need for a strong, well maintained design system. It makes it matter more!
 
-Going fast against a reference that is quietly drifting might get you something faster, but it will also get you lost sooner. Keeping the reference true is what makes the speed more consistent. I wonder if the teams that do well, in the long run, will not be the ones that adopted AI the fastest but instead the ones where a central team held the line, so that when they moved fast, they moved in the right direction.
+Going fast against a reference that you are unaware is drifting in the background might get you something faster, but it will also get you lost a lot sooner. Keeping the reference accurate and true is what will make the speed you're aiming for consistent.
+
+I wonder if the teams that do well in the long run, will not be the ones that adopted AI the fastest but instead the ones where a central team held the line, so that when they moved fast, they moved in the right direction.
