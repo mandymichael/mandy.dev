@@ -17,8 +17,6 @@ card:
   }
 ---
 
-# Testing Claude Design with an Existing Design System
-
 Many of the write-ups I’ve seen about design-to-code tools start from a blank slate: “make me a UI”. But that is not really where I think most people will start in their day-to-day work.
 
 I already have access to an established design system. The question I cared about was not whether Claude Design could invent an interface from nothing. It was whether it could plug into a real, maintained system and produce work that stayed faithful to it.

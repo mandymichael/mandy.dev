@@ -18,8 +18,6 @@ card:
   }
 ---
 
-# Generating Figma Designs from Code with Claude
-
 I've recently been experimenting with design and code workflows to understand where AI can make our lives easier without compromising the quality we've spent a long time working towards.
 
 The first workflow I explored was using Claude Code to generate Figma designs directly from the source.
