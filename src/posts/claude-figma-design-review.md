@@ -10,7 +10,6 @@ tags:
   - claude
   - workflows
   - figma
-  - draft
 
 card:
   {
@@ -57,13 +56,11 @@ Once I made that expectation clear, the generated frames became much more usable
 
 ## Collaborating with design
 
-A little later in the process, I ran the output past the lead designer so I could refine the skill and make sure the generated frames were being set up in the way we prefer.
+Once area that I still need to address is running the output past a lead designer, at a glance it looks fine, but I think I could refine the skill and make sure the generated frames were being set up in the way we prefer.
 
-That step was important because the value of this workflow is not only whether Claude can generate something that looks right. It is whether the result behaves like a usable design file.
+This step is important because the value of this workflow is not only whether Claude can generate something that looks right. It is whether the result behaves like a usable design file.
 
 That means sensible layout structure, appropriate component usage, understandable layer organisation, and enough consistency that a designer can pick it up without having to immediately rebuild it.
-
-The feedback helped move the workflow away from "AI-generated Figma output" and closer to "a useful design-system-based starting point".
 
 ## The speed problem
 

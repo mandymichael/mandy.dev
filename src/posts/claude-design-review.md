@@ -51,7 +51,7 @@ My workflow involved generating a design from a screenshot and then as a follow 
 
 However, unless customer expectations change, I do not think the output is good enough to share externally. In my test, the discrepancies between my input and its output were too large for anything customer-facing. I would put it firmly in the internal exploration bucket, not the polished deliverable one.
 
-There is also a risk here. Because Claude Design is not working from real system constraints, it can generate something that goes against your guidelines or fails your standards for performance, accessibility, or feasibility. I would want accurate human review before sharing anything too widely.
+There is also a risk here, because Claude Design is not working from real system constraints, it can generate something that goes against your guidelines or fails your standards for performance, accessibility, or feasibility. I would want accurate human review before sharing anything too widely.
 
 Some may argue that the polished deliverable is becoming less relevant, and if expectations change, this may become a great tool for external communication. But for now, I would keep it internal.
 
@@ -65,24 +65,24 @@ However, Figma is seriously lacking on the prototyping front. In my opinion, Cla
 
 Knowing which of those you need on a given task tells you which tool to reach for.
 
-I look forward to seeing how this space changes over time.
+What's important to note is that both required additional effort to get some usable output, while the figma skill I made was largely focused on improving performance, the one from Claude Design require more guidance on following Design System. I look forward to seeing how this space changes over time.
 
 ## For Funzies...Claude Design to Figma
 
 I also tested sending a Claude Design output into Figma via Claude Code. It was not great, to be honest.
 
-It was nowhere near as good as going from our actual codebase, or even from a screenshot, into Figma with Claude Code. I suspect this is because the package Claude Design generates does not carry real design-system references. By the time it reaches Figma, there is nothing solid to anchor to. I think one way to improve this would be to have Claude Code try to find the appropriate component library replacements before sending to Figma but it's frustrating that this is necessary.
+It was nowhere near as good as going from our actual codebase, or even from a screenshot, into Figma with Claude Code. I suspect this is because the package Claude Design generates does not carry real design-system references. By the time it reaches Figma, there is nothing solid to anchor to. I think one way to improve this would be to have Claude Code try to find the appropriate component library replacements before sending to Figma but this just adds more time onto the generation.
 
-It is not quite garbage in, garbage out (I wouldn't not go that far), but the further you get from the real system, the more the absence of a proper connection to the system seems to build up. And it will end up costing you more in tokens!
+It is not quite garbage in, garbage out (I wouldn't go that far), but the further you get from the real system, the more the absence of a proper connection to the system seems to build up. And it will end up costing you more in tokens!
 
 ## Overall view
 
 Claude Design was easy to adopt and genuinely useful for prototyping, especially if you lean into its flexibility and treat that as the point rather than a consolation prize.
 
-However, it is important not to get caught up in the hype. Claude Design is working from a copy of your design system, not a connection to it. That copy is only as accurate as the last time you regenerated it, and regeneration does not guarantee accuracy.
+However, it is important to remember that Claude Design is working from a copy of your design system, not a connection to it. That copy is only as accurate as the last time you regenerated it, and regeneration does not guarantee accuracy.
 
 For exploring workflows and moving quickly internally, I think it is a useful tool. For anything that needs to stay faithful to a maintained design system, such as customer-facing output or a reliable design-to-code pipeline, I do not think it is as strong as the Claude and Figma workflow.
 
-With enough effort, especially if you make good use of skills, you may be able to close some of that gap. However, in my opinion, Claude Design is best when you need momentum, not when you need trust.
+With enough effort, especially if you make good use of skills, you may be able to close some of that gap. However, in my opinion, Claude Design is best when you need speed and momentum, not when you need trustworthy output.
 
 From my experiments so far with Claude Design and Figma MCP, I do not think either approach solves all of the problems yet, however I am interested to see how this space develops.
