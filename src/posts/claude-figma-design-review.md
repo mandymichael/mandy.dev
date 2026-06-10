@@ -10,6 +10,7 @@ tags:
   - claude
   - workflows
   - figma
+  - draft
 
 card:
   {
