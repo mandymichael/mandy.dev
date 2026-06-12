@@ -7,11 +7,7 @@ tags:
   - AI
   - design systems
 
-card:
-  {
-    cardImage: /assets/images/placeholder-hero.svg,
-    cardAlt: Abstract representation of a design system as a grid of connected components,
-  }
+card: { cardImage: /assets/images/placeholder-hero.svg }
 ---
 
 I've been thinking a lot about where design systems fit now that AI is writing so much of our UI and what their job actually is now that a meaningful share of the work is being generated rather than written by hand.

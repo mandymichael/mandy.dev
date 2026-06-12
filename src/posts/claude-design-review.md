@@ -10,11 +10,7 @@ tags:
   - workflows
   - prototyping
 
-card:
-  {
-    cardImage: /assets/images/placeholder-hero.svg,
-    cardAlt: Claude Design interface showing a generated UI prototype,
-  }
+card: { cardImage: /assets/images/placeholder-hero.svg }
 ---
 
 Many of the write-ups I’ve seen about design-to-code tools start from a blank slate: “make me a UI”. But that is not really where I think most people will start in their day-to-day work.

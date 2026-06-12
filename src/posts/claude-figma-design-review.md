@@ -11,11 +11,7 @@ tags:
   - workflows
   - figma
 
-card:
-  {
-    cardImage: /assets/images/placeholder-hero.svg,
-    cardAlt: Generated Figma design workflow using Claude Code and design-system components,
-  }
+card: { cardImage: /assets/images/placeholder-hero.svg }
 ---
 
 I've recently been experimenting with design and code workflows to understand where AI can make our lives easier without compromising the quality we've spent a long time working towards.
