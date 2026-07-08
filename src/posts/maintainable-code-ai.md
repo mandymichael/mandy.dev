@@ -33,7 +33,7 @@ Unfortunately doing something else ends up being the worst-case scenario because
 
 For me at least I've found the cleaner the surrounding code is, the more the model behaves the way I want it to without me having to over-specify. The messier it is, the more I find myself writing constraints into the prompt or the skill or the review process, because the code itself isn't supporting the model by telling it what good looks like.
 
-## What happens when costs increase?
+## A thought about costs
 
 The other reason I keep thinking about is cost, because even if per-token prices are coming down, total spend per engineer keeps going up and the volume of generation is rising faster than prices are falling. Additionally the tokens are scaling with how much context the model needs to load and how many times it has to go back and forth to get the right answer.
 
@@ -43,11 +43,11 @@ For example if conventions in the file you are working on aren't consistent with
 
 I personally don't think this is going to get cheaper, at least any time soon. Models will get more efficient and pricing will shift, but the volume of generation per engineer is going up faster than per-token costs are currently coming down, and the codebases we're pointing models at are getting larger, not smaller.
 
-## So what does this mean?
+## It still matters
 
 I think code quality and consistency, easily maintainable code and easy to read and understand code still matters. But I think im leaning towards it being more important than ever, and not because it wasn't a problem for people, it always was, it's just now there is less human judgement in the mix.
 
-The dead code we left around is now treated as a valid reference. If you leave an old version of a function next to the new one, the model has a reasonable chance of extending the old pattern in the next change. So deleting unused code isn't just tidying up anymore you are literally removing traps that AI might get caught in. The same applies to consistency, if there are two ways to wire up a form in the codebase we're just inviting the model to pick one.
+The dead code we left around is now treated as a valid reference. If you leave an old version of a function next to the new one, the model has a reasonable chance of extending the old pattern in the next change. This means that deleting unused code isn't only about tidying up, instead you are literally removing traps that AI might get caught in. The same applies to consistency, if there are two ways to wire up a form in the codebase leaving both is just inviting the model to pick one unless you explicitly specify otherwise.
 
 And comments are another one, I think the rule is still that good code mostly explains itself. But a short comment explaining the intent, like why a particular approach was chosen helps the model make better decisions about what to change and what to leave alone.
 
@@ -59,6 +59,6 @@ I don't think we want to try to anticipate every future need, I'm also not sayin
 
 To wrap up my final thoughts, I think it's ironic that maintainable code was typically something we did for our human colleagues, the same applied to things like accessibility, this was done for people to make it easier, for people. But now those same properties that made code easy for a person to work with are what help AI produce good output with less context, fewer round trips, and less drift.
 
-Anyway I think it's not just about quality anymore, and if you treat code clarity as a discipline rather than a preference maybe you'll spend less on tokens, ship faster and end up with codebases that stay easy to read, understand and generate against rather than drifting under the weight of your own output.
+Anyway I think it's not just about quality anymore, and if you treat code clarity as a discipline rather than a preference maybe you'll spend less on tokens and ship faster because the AI will have a better foundation to generate against rather than drifting under the weight of your own output.
 
 It seems to me that AI just keeps highlighting how important the basics were, that actually we were on the right track and that these foundations haven't suddenly stopped being important. It's the opposite, they are more important than anywhere.
