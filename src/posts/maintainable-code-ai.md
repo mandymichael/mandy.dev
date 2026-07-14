@@ -61,4 +61,4 @@ To wrap up my final thoughts, I think it's ironic that maintainable code was typ
 
 Anyway I think it's not just about quality anymore, and if you treat code clarity as a discipline rather than a preference maybe you'll spend less on tokens and ship faster because the AI will have a better foundation to generate against rather than drifting under the weight of your own output.
 
-It seems to me that AI just keeps highlighting how important the basics were, that actually we were on the right track and that these foundations haven't suddenly stopped being important. It's the opposite, they are more important than anywhere.
+It seems to me that AI just keeps highlighting how important the basics were, that actually we were on the right track and that these foundations haven't suddenly stopped being important. It's the opposite, they are more important than ever.
